@@ -1,14 +1,10 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { Meta } from '@/components/Layout/Meta'
 
 const Home: NextPage = () => {
   return (
     <div>
-      <Head>
-        <title>nextjs template starter</title>
-        <meta name="description" content="nextjs template starter" />
-        <link rel="icon" href="/favicon.svg" />
-      </Head>
+      <Meta title="nextjs starter" description="lawliet" />
 
       <main className="py-20 px-12 text-center flex flex-col items-center gap-20px">
         <span text="blue 5xl hover:red" cursor="default">Nextjs</span>
