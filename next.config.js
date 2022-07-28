@@ -1,8 +1,14 @@
 const UnoCSS = require('@unocss/webpack').default
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+// const isProd = process.env.NODE_ENV === 'production'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
+  // distDir: 'build',
   swcMinify: true,
   webpack: (config, { ...options }) => {
     if (options.buildId !== 'development') {
@@ -16,6 +22,8 @@ const nextConfig = {
     )
     return config
   },
+  // Use the CDN in production and localhost for development.
+  // assetPrefix: isProd ? '' : '',
 }
 
-module.exports = nextConfig
+module.exports = withBundleAnalyzer(nextConfig)
